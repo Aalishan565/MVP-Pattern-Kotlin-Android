@@ -6,7 +6,7 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mvpkotlin.R
-import com.example.mvpkotlin.model.LoginModel
+import com.example.mvpkotlin.presenter.LoginPresenterImpl
 import com.example.mvpkotlin.view.listener.LoginResultListener
 
 class MainActivity : AppCompatActivity(), LoginResultListener {
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity(), LoginResultListener {
         //btn click listener
         btnLogin.setOnClickListener {
             //Creating the object of presenter and passing reference of login result listener
-            var presenter = LoginModel(this)
+            var presenter = LoginPresenterImpl(this)
             // passing user name and password to login model by do login method
             presenter.doLogin(etUserName.text.toString(), etPassword.text.toString())
         }
